@@ -9,7 +9,7 @@ class Listing extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title', 'location', 'website', 'email', 'description','tags'];
+    protected $fillable=['title', 'tags', 'company', 'location', 'email', 'website', 'description','logo', 'user_id'];
 
 //function to filter the tag by scope
    public function scopeFilter($query, array $filters){
@@ -24,5 +24,11 @@ class Listing extends Model
         ->orWhere('tags', 'like', '%' . request('search'). '%')
         ->orWhere('location', 'like', '%' . request('search'). '%');
     }
+   }
+
+   //Relationship to user
+
+   public function user(){
+        return $this->belongsTo(User::class, 'user_id');
    }
 }

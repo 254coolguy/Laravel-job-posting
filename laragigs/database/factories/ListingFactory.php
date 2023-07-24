@@ -18,7 +18,7 @@ class ListingFactory extends Factory
     {
         return [
             "title" => $this->faker->sentence(),
-            'tags' => serialize(['laravel', 'api', 'sckend']), // Store tags as a serialized string
+            'tags' => "laravel, vue, api",
             "company" => $this->faker->company(),
             "email" => $this->faker->companyEmail(),
             "website" => $this->faker->url(),

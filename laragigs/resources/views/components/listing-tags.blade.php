@@ -1,9 +1,8 @@
 @props(['tagsCsv'])
 
 @php
-    $tags = unserialize($tagsCsv);
-    $tags[4] = 'new_value';
-    $updatedTagsSerialized = serialize($tags);
+
+    $tags = explode(',', $tagsCsv)
 
 
 @endphp
